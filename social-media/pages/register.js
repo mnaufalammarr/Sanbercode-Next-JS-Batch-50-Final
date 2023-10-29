@@ -24,14 +24,7 @@ export default function Login() {
       url: "https://paace-f178cafcae7b.nevacloud.io/api/register",
       payload,
     });
-    if (!res?.success) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        timer: 2000,
-        confirmButtonColor: "rgb(56 189 248)",
-      });
-    } else {
+    if (res?.success)  {
       Cookies.set("user_token", res?.data?.token, {
         expires: new Date(res?.data?.expires_at),
         path: "/login",
